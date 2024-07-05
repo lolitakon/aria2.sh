@@ -1,4 +1,24 @@
-# Aria2 一键安装管理脚本 增强版
+# Aria2 一键安装管理脚本 增强修复版
+## 为什么要修复？(fork)
+
+原仓/脚本本身并不支持传统的[option]选项，只能通过打开脚本并在脚本内交互来使用，这对于自动化作业来说极其不方便
+
+### 例1
+
+比如你现在想要开机时使用此脚本启动Aria2，且原脚本本身并不支持外部[option]选项，那该如何启动？只能手动打开aria2.sh再键入4回车来启动，此时加入[option]就方便很多，可以直接使用aria2.sh 4一条命令完成，无需等待交互窗口进行交互，这也极大方便了crond，atd等定时和自动化任务的设置。
+
+
+## 修复(fork)信息
+
+在714行（原712行）read中断之前加入对环境变量$1的判断，若不存在$1则进行read，赋予变量名为num，若存在则跳过read，直接将num变量赋值为$1
+
+
+
+
+
+# 原仓信息
+
+
 
 [![LICENSE](https://img.shields.io/github/license/P3TERX/aria2.sh?style=flat-square)](https://github.com/P3TERX/aria2.sh/blob/master/LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/P3TERX/aria2.sh.svg?style=flat-square&label=Stars&logo=github)](https://github.com/P3TERX/aria2.sh/stargazers)
